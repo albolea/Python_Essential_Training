@@ -8,14 +8,14 @@ from bs4 import BeautifulSoup
 def load_url_from_files(file_path: str):
     try:
         with open(file_path) as f:
-            content = f.readline()
+            content = f.readlines()
             return content
     except FileNotFoundError:
         print(f'The file {file_path} could not be found')
         exit(2)
 
 
-def load_url(url: str):
+def load_page(url: str):
     response = urlopen(url)
     html = response.read().decode('utf-8')
     return html
